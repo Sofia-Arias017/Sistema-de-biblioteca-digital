@@ -103,4 +103,16 @@ let json = JSON.stringify({ libros, usuarios }, null, 2)
     console.log("Datos exportados en formato JSON:", json)
 }
 
+function importarDatosBiblioteca() {
+let json = prompt("Ingrese los datos en formato JSON:")
+    try {
+let datos = JSON.parse(json)
+        libros = datos.libros || []
+        usuarios = datos.usuarios || []
+        console.log("Datos importados correctamente.")
+    } catch (error) {
+console.log("Error al importar datos. Verifique el formato JSON.")
+    }
+}
+
 
