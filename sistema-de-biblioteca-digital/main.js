@@ -115,4 +115,53 @@ console.log("Error al importar datos. Verifique el formato JSON.")
     }
 }
 
+function menu() {
+let opcion
+    do {
+        opcion = prompt(
+            "Seleccione una opción:\n" +
+            "1. Registrar libro\n" +
+            "2. Registrar usuario\n" +
+            "3. Prestar libro\n" +
+            "4. Devolver libro\n" +
+            "5. Ver libros prestados por usuario\n" +
+            "6. Exportar datos a JSON\n" +
+            "7. Importar datos desde JSON\n" +
+            "8. Salir"
+        )
+
+    switch (opcion) {
+        case "1":
+            registrarLibro()
+            break
+        case "2":
+            registrarUsuario()
+            break
+        case "3":
+            prestarLibro()
+            break
+        case "4":
+            devolverLibro()
+            break
+        case "5":
+            librosPrestadosPorUsuario()
+            break
+        case "6":
+            exportarDatosBiblioteca()
+            break
+        case "7":
+            importarDatosBiblioteca()
+            break
+        case "8":
+            console.log("Saliendo del sistema de biblioteca.")
+            break
+        default:
+            console.log("Opción no válida, intente de nuevo.")
+        }
+    } while (opcion !== "8")
+}
+
+menu()
+
+
 
