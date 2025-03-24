@@ -57,3 +57,27 @@ usuario.prestamos.push(isbnLibro)
 libro.disponible = false
 console.log(`El libro '${libro.titulo}' ha sido prestado a '${usuario.nombre}'.`)
 }
+
+function devolverLibro() {
+let idUsuario = Number(prompt("Ingrese el ID del usuario:"))
+let isbnLibro = prompt("Ingrese el ISBN del libro a devolver:")
+    
+let usuario = usuarios.find(u => u.id === idUsuario)
+let libro = libros.find(l => l.isbn === isbnLibro)
+    
+if (!usuario || !libro) {
+    console.log("Usuario o libro no encontrado.")
+    return
+    }
+    
+let index = usuario.prestamos.indexOf(isbnLibro)
+if (index === -1) {
+    console.log("Este usuario no tiene prestado ese libro.")
+    return
+    }
+    
+usuario.prestamos.splice(index, 1)
+libro.disponible = true
+console.log(`El libro '${libro.titulo}' ha sido devuelto.`)
+}
+
