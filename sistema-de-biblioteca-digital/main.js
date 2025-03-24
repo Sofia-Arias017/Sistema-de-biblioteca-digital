@@ -16,3 +16,19 @@ let libro = {
 libros.push(libro)
 console.log(`El libro '${titulo}' ha sido registrado con éxito.`)
 }
+
+function registrarUsuario() {
+let id = Number(prompt("Ingrese el ID del usuario:"))
+let nombre = prompt("Ingrese el nombre del usuario:")
+let correo = prompt("Ingrese el correo del usuario:")
+    
+let usuario = {
+    id: id,
+    nombre: nombre,
+    correo: correo,
+    prestamos: []
+    }
+    
+usuarios.push(usuario)
+console.log(`Usuario '${nombre}' registrado con éxito.`)
+}
