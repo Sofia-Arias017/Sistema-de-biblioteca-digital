@@ -32,3 +32,28 @@ let usuario = {
 usuarios.push(usuario)
 console.log(`Usuario '${nombre}' registrado con éxito.`)
 }
+
+function prestarLibro() {
+let idUsuario = Number(prompt("Ingrese el ID del usuario:"))
+let isbnLibro = prompt("Ingrese el ISBN del libro a prestar:")
+    
+let usuario = usuarios.find(u => u.id === idUsuario)
+let libro = libros.find(l => l.isbn === isbnLibro)
+    
+if (!usuario) {
+    console.log("Usuario no encontrado.")
+    return
+    }
+if (!libro) {
+    console.log("Libro no encontrado.")
+    return
+    }
+if (!libro.disponible) {
+    console.log("El libro ya está prestado.")
+    return
+    }
+    
+usuario.prestamos.push(isbnLibro)
+libro.disponible = false
+console.log(`El libro '${libro.titulo}' ha sido prestado a '${usuario.nombre}'.`)
+}
