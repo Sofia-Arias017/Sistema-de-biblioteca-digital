@@ -81,3 +81,21 @@ libro.disponible = true
 console.log(`El libro '${libro.titulo}' ha sido devuelto.`)
 }
 
+function librosPrestadosPorUsuario() {
+let idUsuario = Number(prompt("Ingrese el ID del usuario:"))
+let usuario = usuarios.find(u => u.id === idUsuario)
+    
+if (!usuario) {
+    console.log("Usuario no encontrado.")
+    return
+    }
+    
+let librosPrestados = usuario.prestamos.map(isbn => {
+    let libro = libros.find(l => l.isbn === isbn)
+    return libro ? libro.titulo : "Desconocido"
+    })
+    
+console.log(`Libros prestados a '${usuario.nombre}':`, librosPrestados.length > 0 ? librosPrestados : "Ninguno")
+}
+
+
