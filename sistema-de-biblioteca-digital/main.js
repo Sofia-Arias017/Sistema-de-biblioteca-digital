@@ -98,4 +98,9 @@ let librosPrestados = usuario.prestamos.map(isbn => {
 console.log(`Libros prestados a '${usuario.nombre}':`, librosPrestados.length > 0 ? librosPrestados : "Ninguno")
 }
 
+function exportarDatosBiblioteca() {
+let json = JSON.stringify({ libros, usuarios }, null, 2)
+    console.log("Datos exportados en formato JSON:", json)
+}
+
 
